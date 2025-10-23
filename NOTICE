@@ -1,0 +1,10 @@
+operational-transformation-go
+Copyright (c) 2025 shiv248
+
+This software includes code derived from the following MIT-licensed projects:
+
+- ot.js (https://github.com/Operational-Transformation/ot.js)
+  Copyright © 2012-2014 Tim Baumann
+
+- operational-transform-rs (https://github.com/spebern/operational-transform-rs)
+  Copyright (c) 2020 bold

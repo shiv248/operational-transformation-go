@@ -408,14 +408,14 @@ FUNCTION Compose(op_a, op_b):
 
     WHILE component_a OR component_b:
         // Priority 1: Delete from A always goes first
-        IF component_a is Delete:
-            result.add(component_a)
+        IF component_a is Delete(n):
+            result.Delete(n)
             component_a = iter_a.next()
             CONTINUE
 
         // Priority 2: Insert from B always goes last
-        IF component_b is Insert:
-            result.add(component_b)
+        IF component_b is Insert(s):
+            result.Insert(s)
             component_b = iter_b.next()
             CONTINUE
 

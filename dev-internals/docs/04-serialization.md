@@ -669,7 +669,6 @@ Based on real-world collaborative editing:
 
 - **Implementation**: `serde.go` - MarshalJSON/UnmarshalJSON methods
 - **Types**: `operation.go` - Operation and OperationSeq types
-- **Helper**: `FromJSON()` function for convenient deserialization
 
 ---
 

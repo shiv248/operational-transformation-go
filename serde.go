@@ -2,7 +2,6 @@ package ot
 
 import (
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -76,27 +75,4 @@ func (o *OperationSeq) String() string {
 		return fmt.Sprintf("error: %v", err)
 	}
 	return string(data)
-}
-
-// FromJSON parses an operation sequence from JSON.
-func FromJSON(data string) (*OperationSeq, error) {
-	var op OperationSeq
-	if err := json.Unmarshal([]byte(data), &op); err != nil {
-		return nil, err
-	}
-	return &op, nil
-}
-
-// MarshalJSON for Operation (for completeness, though not typically used directly)
-func MarshalOperation(op Operation) ([]byte, error) {
-	switch v := op.(type) {
-	case Retain:
-		return json.Marshal(v.N)
-	case Delete:
-		return json.Marshal(-int64(v.N))
-	case Insert:
-		return json.Marshal(v.Text)
-	default:
-		return nil, errors.New("unknown operation type")
-	}
 }

@@ -8,6 +8,31 @@ import (
 // Tests ported from Rust operational-transform:
 // https://github.com/spebern/operational-transform-rs/blob/master/operational-transform/src/lib.rs#L558-L741
 
+func TestWithCapacity(t *testing.T) {
+	// Test that WithCapacity creates an empty operation with pre-allocated capacity
+	o := WithCapacity(10)
+
+	// Should start empty
+	if o.baseLen != 0 || o.targetLen != 0 {
+		t.Errorf("expected baseLen=0, targetLen=0, got %d, %d", o.baseLen, o.targetLen)
+	}
+	if len(o.ops) != 0 {
+		t.Errorf("expected 0 ops, got %d", len(o.ops))
+	}
+
+	// Should behave identically to NewOperationSeq() in functionality
+	o.Retain(5)
+	o.Insert("test")
+	o.Delete(2)
+
+	if o.baseLen != 7 || o.targetLen != 9 {
+		t.Errorf("expected baseLen=7, targetLen=9, got %d, %d", o.baseLen, o.targetLen)
+	}
+	if len(o.ops) != 3 {
+		t.Errorf("expected 3 ops, got %d", len(o.ops))
+	}
+}
+
 func TestLengths(t *testing.T) {
 	o := NewOperationSeq()
 	if o.baseLen != 0 || o.targetLen != 0 {

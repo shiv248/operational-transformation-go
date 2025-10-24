@@ -549,6 +549,30 @@ fmt.Println(op.TargetLen())  // Output length
 fmt.Println(op.IsNoop())     // Check if no-op
 ```
 
+#### Performance: Pre-allocating Capacity
+
+When building large operation sequences, you can pre-allocate capacity to avoid repeated memory reallocations:
+
+```go
+// Pre-allocate capacity for ~100 operations
+op := ot.WithCapacity(100)
+
+// Build large sequence efficiently
+for i := 0; i < 100; i++ {
+    op.Insert(fmt.Sprintf("text_%d", i))
+}
+```
+
+**When to use `WithCapacity()`:**
+- Processing large documents (thousands of operations)
+- Building operations in performance-critical paths
+- When the approximate size is known in advance
+
+**When to use `NewOperationSeq()` instead:**
+- Default choice for most use cases
+- Small to medium-sized operations
+- Size is unknown or dynamic
+
 ---
 
 ## Noop Detection

@@ -1,4 +1,4 @@
-version: 2
+version: "2"
 
 run:
   timeout: 5m
@@ -9,14 +9,9 @@ linters:
     - govet         # Standard Go analysis (matches your old Makefile)
     - staticcheck   # Industry standard, catches real bugs
     - unused        # Dead code detection
-
-linters-settings:
-  govet:
-    # Use default checks (same as 'go vet')
-    enable-all: false
-
-  errcheck:
-    check-blank: true
-
-issues:
-  exclude-use-default: false
+  settings:
+    govet:
+      # Use default checks (same as 'go vet')
+      enable-all: false
+    errcheck:
+      check-blank: true

@@ -28,7 +28,7 @@ func (a *OperationSeq) Transform(b *OperationSeq) (*OperationSeq, *OperationSeq,
 	for {
 		// Both operations exhausted
 		if op1 == nil && op2 == nil {
-			break
+			return aPrime, bPrime, nil
 		}
 
 		// Handle Insert vs Insert - use string comparison for tie-breaking
@@ -158,8 +158,6 @@ func (a *OperationSeq) Transform(b *OperationSeq) (*OperationSeq, *OperationSeq,
 		// Should never reach here if operations are valid
 		return nil, nil, ErrIncompatibleLengths
 	}
-
-	return aPrime, bPrime, nil
 }
 
 // opIterator provides iteration over operations.

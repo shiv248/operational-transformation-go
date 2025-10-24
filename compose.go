@@ -24,7 +24,7 @@ func (a *OperationSeq) Compose(b *OperationSeq) (*OperationSeq, error) {
 	for {
 		// Both operations exhausted
 		if op1 == nil && op2 == nil {
-			break
+			return result, nil
 		}
 
 		// Delete from first operation takes priority
@@ -132,6 +132,4 @@ func (a *OperationSeq) Compose(b *OperationSeq) (*OperationSeq, error) {
 		// Should never reach here if operations are valid
 		return nil, ErrIncompatibleLengths
 	}
-
-	return result, nil
 }

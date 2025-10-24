@@ -98,6 +98,16 @@ All tests ported from Rust operational-transform pass successfully.
 - [Kolabpad](https://github.com/shiv248/kolabpad) - Real-time collaborative editor using this library
 - [OT.js Demo](https://operational-transformation.github.io) - Interactive visualization of Operational Transformation
 
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes:
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes using [Conventional Commits](https://www.conventionalcommits.org/)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
 ## References
 
 ### Implementations

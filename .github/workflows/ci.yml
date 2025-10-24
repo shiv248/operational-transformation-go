@@ -37,6 +37,7 @@ jobs:
           go-version: ${{ matrix.go-version }}
 
       - name: Run tests
+        shell: bash
         run: go test -v -race -coverprofile=coverage.txt ./...
 
       - name: Upload coverage (Ubuntu + Go 1.23 only)

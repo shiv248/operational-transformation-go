@@ -1,5 +1,10 @@
 # Operational Transform (OT) for Go
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/shiv248/operational-transformation-go.svg)](https://pkg.go.dev/github.com/shiv248/operational-transformation-go)
+[![CI](https://github.com/shiv248/operational-transformation-go/actions/workflows/ci.yml/badge.svg)](https://github.com/shiv248/operational-transformation-go/actions)
+[![codecov](https://codecov.io/gh/shiv248/operational-transformation-go/graph/badge.svg)](https://codecov.io/gh/shiv248/operational-transformation-go)
+[![Go Report Card](https://goreportcard.com/badge/github.com/shiv248/operational-transformation-go)](https://goreportcard.com/report/github.com/shiv248/operational-transformation-go)
+
 A Go port of the Rust [`operational-transform`](https://github.com/spebern/operational-transform-rs) library, which itself is a port of [ot.js](https://github.com/Operational-Transformation/ot.js).
 
 ## Overview

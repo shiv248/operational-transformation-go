@@ -1,0 +1,45 @@
+run:
+  timeout: 5m
+  tests: true
+  modules-download-mode: readonly
+
+linters:
+  enable:
+    - errcheck      # Check for unchecked errors
+    - gosimple      # Simplify code
+    - govet         # Standard Go analysis
+    - ineffassign   # Detect ineffectual assignments
+    - staticcheck   # Advanced static analysis
+    - typecheck     # Type checking
+    - unused        # Detect unused code
+    - gofmt         # Format checking
+    - goimports     # Import organization
+    - misspell      # Spell checking
+    - revive        # Fast, configurable linter
+    - unconvert     # Remove unnecessary conversions
+    - gocyclo       # Cyclomatic complexity
+    - dupl          # Code clone detection
+    - goconst       # Finds repeated strings that could be constants
+    - exportloopref # Checks for pointers to enclosing loop variables
+
+linters-settings:
+  errcheck:
+    check-blank: true
+    check-type-assertions: true
+
+  govet:
+    enable-all: true
+
+  gocyclo:
+    min-complexity: 15
+
+  dupl:
+    threshold: 100
+
+  misspell:
+    locale: US
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0

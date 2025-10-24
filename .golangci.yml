@@ -5,13 +5,37 @@ run:
 
 linters:
   enable:
-    - errcheck      # Check for unchecked errors
-    - govet         # Standard Go analysis (matches your old Makefile)
-    - staticcheck   # Industry standard, catches real bugs
-    - unused        # Dead code detection
+    # Core linters (enabled by default in v2.5+, listed explicitly for clarity)
+    - errcheck        # Check for unchecked errors
+    - govet           # Standard Go analysis
+    - staticcheck     # Industry standard (includes gosimple in v2.5+)
+    - unused          # Dead code detection
+    - ineffassign     # Detect ineffectual assignments
+
+    # Additional linters (high signal, low noise)
+    - errorlint       # Enforce proper error wrapping with %w
+    - durationcheck   # Catch time.Duration arithmetic bugs
+    - gomoddirectives # Keep go.mod clean
+    - misspell        # Catch typos in comments/strings
+    - unparam         # Find unused function parameters
+    - nolintlint      # Validate nolint directives are well-formed
+
   settings:
     govet:
-      # Use default checks (same as 'go vet')
       enable-all: false
+
     errcheck:
       check-blank: true
+      check-type-assertions: true
+
+    misspell:
+      locale: US
+
+    errorlint:
+      errorf: true
+      asserts: true
+      comparison: true
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0

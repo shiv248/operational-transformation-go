@@ -190,15 +190,3 @@ func (o *OperationSeq) Retain(n uint64) {
 
 	o.ops = append(o.ops, Retain{N: n})
 }
-
-// add is an internal helper to add any operation type.
-func (o *OperationSeq) add(op Operation) {
-	switch v := op.(type) {
-	case Retain:
-		o.Retain(v.N)
-	case Delete:
-		o.Delete(v.N)
-	case Insert:
-		o.Insert(v.Text)
-	}
-}

@@ -957,6 +957,10 @@ The Transform algorithm is the heart of Operational Transformation:
 - For sequential composition: [03-compose-apply.md](03-compose-apply.md)
 - For serialization format: [04-serialization.md](04-serialization.md)
 
+**Further Reading**:
+- Sun, C., & Ellis, C. (1998). [Operational transformation in real-time group editors](https://dl.acm.org/doi/10.1145/289444.289469). _CSCW '98_, 59-68.
+  - The seminal paper establishing the theoretical foundations of OT
+
 ---
 
 Transform enables the magic of real-time collaboration: multiple users editing simultaneously while maintaining a single, consistent document state. Understanding transform is essential for implementing and debugging OT-based collaborative editing systems.

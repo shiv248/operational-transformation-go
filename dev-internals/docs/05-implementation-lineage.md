@@ -20,9 +20,14 @@
 
 ## The Lineage Tree
 
-The operational transformation ecosystem has evolved through multiple language implementations, each building on lessons learned from predecessors:
+The operational transformation ecosystem has evolved from academic theory through multiple language implementations, each building on lessons learned from predecessors:
 
 ```
+Sun & Ellis (1998) - OT Theory
+  ├─ Formal transformation properties
+  ├─ Convergence guarantees
+  └─ Algorithm foundations
+  ↓
 ot.js (2012)
   ├─→ ot.go (2015, petejkim)
   │     └─→ Direct JavaScript → Go port
@@ -929,6 +934,12 @@ This project successfully brings:
 - **[01-operations.md](01-operations.md)** - Core OT operations and design
 - **[02-transform.md](02-transform.md)** - Transform algorithm details
 - **[04-serialization.md](04-serialization.md)** - Wire format compatibility
+
+### Academic Foundations
+
+- **Sun, C., & Ellis, C. (1998)**. [Operational transformation in real-time group editors](https://dl.acm.org/doi/10.1145/289444.289469). _Proceedings of the 1998 ACM Conference on Computer Supported Cooperative Work_ (CSCW '98), 59-68.
+  - The seminal paper that established the theoretical foundations and formal properties of Operational Transformation
+  - Defines the convergence guarantees that all implementations (ot.js, Rust, and this Go port) rely upon
 
 ### External References
 

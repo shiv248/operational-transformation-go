@@ -95,9 +95,14 @@ All tests ported from Rust operational-transform pass successfully.
 
 ## References
 
-- [Rust operational-transform](https://github.com/spebern/operational-transform-rs)
-- [ot.js](https://github.com/Operational-Transformation/ot.js)
-- [OT FAQ](https://www3.ntu.edu.sg/scse/staff/czsun/projects/otfaq/)
+### Implementations
+- [Rust operational-transform](https://github.com/spebern/operational-transform-rs) - Source for this Go port
+- [ot.js](https://github.com/Operational-Transformation/ot.js) - Original JavaScript implementation
+- [OT FAQ](https://www3.ntu.edu.sg/scse/staff/czsun/projects/otfaq/) - Comprehensive FAQ on Operational Transformation
+
+### Further Reading
+- Sun, C., & Ellis, C. (1998). [Operational transformation in real-time group editors](https://dl.acm.org/doi/10.1145/289444.289469). _CSCW '98_, 59-68.
+  - Foundational paper on OT theory and algorithms
 
 ## License
 

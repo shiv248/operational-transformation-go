@@ -215,25 +215,35 @@ func TestTransformSymmetry(t *testing.T) {
 	b.Insert("Hi! ")
 	b.Retain(5)
 
-	aPrime1, bPrime1, err := a.Transform(b)
+	aPrime, bPrime, err := a.Transform(b)
 	if err != nil {
 		t.Fatalf("Transform(A, B) failed: %v", err)
 	}
 
-	bPrime2, aPrime2, err := b.Transform(a)
+	// Verify symmetry: both paths should converge
+	// Path 1: apply a to s, then apply b' to result
+	afterA, err := a.Apply(s)
 	if err != nil {
-		t.Fatalf("Transform(B, A) failed: %v", err)
+		t.Fatalf("Apply a failed: %v", err)
+	}
+	afterAB, err := bPrime.Apply(afterA)
+	if err != nil {
+		t.Fatalf("Apply b' after a failed: %v", err)
 	}
 
-	// Verify symmetry
-	afterAB1, _ := aPrime1.Apply(s)
-	afterBA1, _ := bPrime1.Apply(afterAB1)
+	// Path 2: apply b to s, then apply a' to result
+	afterB, err := b.Apply(s)
+	if err != nil {
+		t.Fatalf("Apply b failed: %v", err)
+	}
+	afterBA, err := aPrime.Apply(afterB)
+	if err != nil {
+		t.Fatalf("Apply a' after b failed: %v", err)
+	}
 
-	afterBA2, _ := bPrime2.Apply(s)
-	afterAB2, _ := aPrime2.Apply(afterBA2)
-
-	if afterBA1 != afterAB2 {
-		t.Errorf("transform symmetry failed:\n  Transform(A,B) result: %q\n  Transform(B,A) result: %q",
-			afterBA1, afterAB2)
+	// Both paths should produce the same result
+	if afterAB != afterBA {
+		t.Errorf("transform convergence failed:\n  a then b': %q\n  b then a': %q",
+			afterAB, afterBA)
 	}
 }
